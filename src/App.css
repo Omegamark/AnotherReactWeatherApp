@@ -1,0 +1,38 @@
+.App {
+  /*background-image: url("https://media.giphy.com/media/OvFQrZk8b5N0Q/source.gif");*/
+  background-color: grey;
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  /*background-color: #222;*/
+  /*background-image: url("https://static.wixstatic.com/media/caa1415466abfa5f8b87b8e6406935cb.jpg_srz_979_653_85_22_0.50_1.20_0.00_jpg_srz");*/
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+/*fixing tables in geoloc.js*/
+
+.fix-table {
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
