@@ -48,38 +48,36 @@ class GMap extends Component {
 
   render() {
     return (
-      <div>
-        <GettingStartedGoogleMap
-          containerElement={
-            <div
-              style={{
-                position: "absolute",
-                top: "20em",
-                left: 0,
-                right: 0,
-                bottom: 0,
-                justifyContent: "flex-end",
-                alignItems: "center"
-              }}
-            />
-          }
-          mapElement={
-            <div
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0
-              }}
-            />
-          }
-          onMapLoad={this.handleMapLoad}
-          onMapClick={this.handleMapClick}
-          markers={this.state.markers}
-          onMarkerRightClick={this.handleMarkerRightClick}
-        />
-      </div>
+      <GettingStartedGoogleMap
+        containerElement={
+          <div
+            style={{
+              position: "absolute",
+              top: "35em",
+              left: 0,
+              right: "15em",
+              bottom: 0,
+              justifyContent: "flex-end",
+              alignItems: "center"
+            }}
+          />
+        }
+        mapElement={
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0
+            }}
+          />
+        }
+        onMapLoad={this.handleMapLoad}
+        onMapClick={this.handleMapClick}
+        markers={this.state.markers}
+        onMarkerRightClick={this.handleMarkerRightClick}
+      />
     );
   }
 }

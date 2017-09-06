@@ -144,19 +144,23 @@ class App extends Component {
         >
           What's The Weather Here & Now?
         </button>
-        <Row>
-          <Col s={4}>
-            <Demo />
-          </Col>
-          {this.state.lat && this.state.long
-            ? <Col s={4}>
-                <GMap
-                  currentLat={this.state.lat}
-                  currentLong={this.state.long}
-                />
-              </Col>
-            : <div> Click The Button </div>}
-        </Row>
+        <div>
+          <Row>
+            <Col l={4}>
+              <Demo />
+            </Col>
+            {this.state.lat && this.state.long
+              ? <Col l={4}>
+                  <GMap
+                    currentLat={this.state.lat}
+                    currentLong={this.state.long}
+                  />
+                </Col>
+              : <Col l={3}>
+                  <div> Click The Button </div>
+                </Col>}
+          </Row>
+        </div>
       </div>
     );
   }
