@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 // Import components, CSS & libraries
+// import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 // import Timer from "./components/timer";
-// import GMap from "./components/gmap";
+import GMap from "./components/gmap";
 import Demo from "./components/geoloc";
 import cogLogo from "./cog.png";
-import "./App.css";
+import { Button, Card, Row, Col } from "react-materialize";
+// import "./App.css";
 import fetch from "node-fetch";
 // Declare variables need for initial state
 const apiKey = "5289bdc9d0f09cf2fce0fedd342c4c13";
-const cogLat = "40.016457";
-const cogLong = "-105.285884";
 // Base search on current Location
 var currentLocation;
 
@@ -48,10 +48,6 @@ var divStyle = {
   padding: "20px",
   backgroundSize: "cover"
 };
-console.log(divStyle.backgroundImage);
-var appCssStyle = "";
-var appHeaderCssStyle = "";
-var defaultCssStyle = "App-header";
 
 class App extends Component {
   constructor(props) {
@@ -60,7 +56,8 @@ class App extends Component {
     this.state = {
       icon: "",
       lat: null,
-      long: null
+      long: null,
+      summary: ""
     };
   }
   // Get the computer's current Location before the component mounts.
@@ -98,6 +95,7 @@ class App extends Component {
       let icon = ds.currently.icon;
       let dynamicLat = ds.latitude;
       let dynamicLong = ds.longitude;
+      let dynamicSummary = ds.minutely.summary;
       console.log(icon);
       console.log(ds);
       // Change the background image based on the icon returned from dark sky.
@@ -105,14 +103,17 @@ class App extends Component {
       // Set the initial state (this will need to change map coords.)
       this.setState({
         icon: icon,
-        lat: currentLocation.latitude,
-        long: currentLocation.longitude,
-        summary: ds.minutely.summary
+        lat: dynamicLat,
+        long: dynamicLong,
+        summary: dynamicSummary
       });
+      console.log(this.state);
     } catch (err) {
       console.error(err);
     }
-    console.log(this);
+    console.log(this.state);
+    console.log(this.state.lat);
+    console.log(this.state.summary);
   }
 
   // Render the page
@@ -134,6 +135,8 @@ class App extends Component {
         {/* <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p> */}
+
+        {/* <Timer /> */}
         <button
           onClick={event => {
             this.initialCall();
@@ -141,10 +144,19 @@ class App extends Component {
         >
           What's The Weather Here & Now?
         </button>
-
-        {/* <Timer /> */}
-        {/* <GMap /> */}
-        <Demo />
+        <Row>
+          <Col s={4}>
+            <Demo />
+          </Col>
+          {this.state.lat && this.state.long
+            ? <Col s={4}>
+                <GMap
+                  currentLat={this.state.lat}
+                  currentLong={this.state.long}
+                />
+              </Col>
+            : <div> Click The Button </div>}
+        </Row>
       </div>
     );
   }

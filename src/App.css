@@ -6,13 +6,13 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 10vh;
 }
 
 .App-header {
   /*background-color: #222;*/
   /*background-image: url("https://static.wixstatic.com/media/caa1415466abfa5f8b87b8e6406935cb.jpg_srz_979_653_85_22_0.50_1.20_0.00_jpg_srz");*/
-  height: 150px;
+  height: 15vh;
   padding: 20px;
   color: white;
 }
