@@ -1,7 +1,7 @@
 import React from "react";
 import { geolocated, geoPropTypes } from "react-geolocated";
 // Using a provided style to save time
-import "../App.css";
+// import "../App.css";
 
 class Demo extends React.Component {
   render() {
@@ -11,7 +11,7 @@ class Demo extends React.Component {
         ? <div>Geolocation is not enabled</div>
         : this.props.coords
           ? <div>
-              <h2>These are your current coordinates:</h2>
+              <h5>These are your current coordinates:</h5>
               <table className="fix-table">
                 <tbody>
                   <tr>

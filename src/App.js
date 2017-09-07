@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import GMap from "./components/gmap";
 import Demo from "./components/geoloc";
 import cogLogo from "./cog.png";
-import { Button, Card, Row, Col } from "react-materialize";
+import { Button, Card, Icon, CardTitle, Row, Col } from "react-materialize";
 // import "./App.css";
 import fetch from "node-fetch";
 // Declare variables need for initial state
@@ -41,13 +41,7 @@ var picObject = {
 };
 console.log(gifObject.rain);
 // Inline styling for changing the pages theme dynamically. Only adding background images now, but could do more.
-var divStyle = {
-  background: "",
-  backgroundColor: "white",
-  height: "150px",
-  padding: "20px",
-  backgroundSize: "cover"
-};
+var bgImage = "";
 
 class App extends Component {
   constructor(props) {
@@ -93,19 +87,19 @@ class App extends Component {
 
       // Initially centering around Cognizant, but have this update with the map later.
       let icon = ds.currently.icon;
-      let dynamicLat = ds.latitude;
-      let dynamicLong = ds.longitude;
-      let dynamicSummary = ds.minutely.summary;
+      let lat = ds.latitude;
+      let long = ds.longitude;
+      let summary = ds.minutely.summary;
       console.log(icon);
       console.log(ds);
       // Change the background image based on the icon returned from dark sky.
       this.switchAppCss(icon);
       // Set the initial state (this will need to change map coords.)
       this.setState({
-        icon: icon,
-        lat: dynamicLat,
-        long: dynamicLong,
-        summary: dynamicSummary
+        icon,
+        lat,
+        long,
+        summary
       });
       console.log(this.state);
     } catch (err) {
@@ -121,42 +115,72 @@ class App extends Component {
     return (
       <div className="App">
         {this.state.icon
-          ? <div style={divStyle}>
-              <img src={cogLogo} className="App-logo" alt="logo" />
-              <h2>
-                Wonder no more:
-                {" " + this.state.summary}
-              </h2>
+          ? <div>
+              <Row>
+                <Col s={4} m={4} l={4}>
+                  <Card
+                    header={<CardTitle reveal image={bgImage} waves="light" />}
+                    title={this.state.summary}
+                    reveal={
+                      <p>
+                        Here is some more information about this product that is
+                        only revealed once clicked on.
+                      </p>
+                    }
+                  />
+
+                  {/* <Card
+                    className="small"
+                    header={
+                      <CardTitle image={bgImage}>
+                        {this.state.summary}
+                      </CardTitle>
+                    }
+                  /> */}
+                </Col>
+              </Row>
             </div>
-          : <div className="App-header">
-              <img src={cogLogo} className="App-logo" alt="logo" />
-              <h2>Curious about the outdoors?</h2>
-            </div>}
+          : <Col s={4} m={4} l={4}>
+              <Card
+                className="small"
+                header={<CardTitle image={cogLogo}>Card Title</CardTitle>}
+                actions={[<a href="#">This is a Link</a>]}
+              >
+                I am a very simple card. I am good at containing small bits of
+                information. I am convenient because I require little markup to
+                use effectively.
+              </Card>
+            </Col>}
         {/* <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p> */}
 
         {/* <Timer /> */}
-        <button
+        <Button
+          waves="light"
           onClick={event => {
             this.initialCall();
           }}
         >
-          What's The Weather Here & Now?
-        </button>
+          What's The Weather Here & Now?<Icon right>cloud</Icon>
+        </Button>
         <div>
           <Row>
-            <Col l={4}>
-              <Demo />
+            <Col s={4} m={4} l={4}>
+              <Card>
+                <Demo />
+              </Card>
             </Col>
             {this.state.lat && this.state.long
-              ? <Col l={4}>
-                  <GMap
-                    currentLat={this.state.lat}
-                    currentLong={this.state.long}
-                  />
+              ? <Col s={4} m={4} l={4}>
+                  <Card>
+                    <GMap
+                      currentLat={this.state.lat}
+                      currentLong={this.state.long}
+                    />
+                  </Card>
                 </Col>
-              : <Col l={3}>
+              : <Col s={4} m={4} l={4}>
                   <div> Click The Button </div>
                 </Col>}
           </Row>
@@ -169,34 +193,34 @@ class App extends Component {
   switchAppCss(icon) {
     switch (icon) {
       case "partly-cloudy-day":
-        divStyle.backgroundImage = `url(${gifObject.partlyCloudyDay})`;
+        bgImage = gifObject.partlyCloudyDay;
         break;
       case "clear-day":
-        divStyle.backgroundImage = `url(${gifObject.clearDay})`;
+        bgImage = gifObject.clearDay;
         break;
       case "cloudy":
-        divStyle.backgroundImage = `url(${gifObject.cloudy})`;
+        bgImage = gifObject.cloudy;
         break;
       case "clear-night":
-        divStyle.backgroundImage = `url(${gifObject.clearNight})`;
+        bgImage = gifObject.clearNight;
         break;
       case "partly-cloudy-night":
-        divStyle.backgroundImage = `url(${gifObject.partlyCloudyNight})`;
+        bgImage = gifObject.partlyCloudyNight;
         break;
       case "rain":
-        divStyle.backgroundImage = `url(${gifObject.rain})`;
+        bgImage = gifObject.rain;
         break;
       case "sleet":
-        divStyle.backgroundImage = `url(${gifObject.sleet})`;
+        bgImage = gifObject.sleet;
         break;
       case "snow":
-        divStyle.backgroundImage = `url(${gifObject.snow})`;
+        bgImage = gifObject.snow;
         break;
       case "wind":
-        divStyle.backgroundImage = `url(${gifObject.wind})`;
+        bgImage = gifObject.wind;
         break;
       case "fog":
-        divStyle.backgroundImage = `url(${gifObject.fog})`;
+        bgImage = gifObject.fog;
         break;
     }
   }

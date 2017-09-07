@@ -49,27 +49,13 @@ class GMap extends Component {
   render() {
     return (
       <GettingStartedGoogleMap
-        containerElement={
-          <div
-            style={{
-              position: "absolute",
-              top: "35em",
-              left: 0,
-              right: "15em",
-              bottom: 0,
-              justifyContent: "flex-end",
-              alignItems: "center"
-            }}
-          />
-        }
+        containerElement={<div style={{}} />}
         mapElement={
           <div
             style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0
+              minHeight: "15rem",
+              maxHeight: "25rem",
+              width: "auto"
             }}
           />
         }
