@@ -1,32 +1,33 @@
-.App {
-  /*background-image: url("https://media.giphy.com/media/OvFQrZk8b5N0Q/source.gif");*/
-  background-color: grey;
-  text-align: center;
+/*Navbar opacity*/
+.opacity {
+  opacity: .6;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 10vh;
+/*flexing cards*/
+.top-cards {
+  display: flex;
+  /*justify-content: center;
+  align-content: space-around;*/
 }
 
-.App-header {
-  /*background-color: #222;*/
-  /*background-image: url("https://static.wixstatic.com/media/caa1415466abfa5f8b87b8e6406935cb.jpg_srz_979_653_85_22_0.50_1.20_0.00_jpg_srz");*/
-  height: 15vh;
-  padding: 20px;
-  color: white;
+/*Centering the button on screen*/
+.center-button {
+  display: flex;
+  justify-content: center;
 }
 
-.App-intro {
-  font-size: large;
+/*Fix card sizing so all cards are the same*/
+.all-card-size {
+  min-height: 16rem;
+  min-width: 20rem;
 }
 
 /*fixing tables in geoloc.js*/
 
-.fix-table {
+/*.fix-table {
   display: flex;
   justify-content: center;
-}
+}*/
 
 @keyframes App-logo-spin {
   from {

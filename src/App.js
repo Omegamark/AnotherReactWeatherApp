@@ -5,8 +5,18 @@ import React, { Component } from "react";
 import GMap from "./components/gmap";
 import Demo from "./components/geoloc";
 import cogLogo from "./cog.png";
-import { Button, Card, Icon, CardTitle, Row, Col } from "react-materialize";
-// import "./App.css";
+import {
+  Button,
+  Card,
+  Icon,
+  CardTitle,
+  CardPanel,
+  Navbar,
+  NavItem,
+  Row,
+  Col
+} from "react-materialize";
+import "./App.css";
 import fetch from "node-fetch";
 // Declare variables need for initial state
 const apiKey = "5289bdc9d0f09cf2fce0fedd342c4c13";
@@ -114,10 +124,32 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.icon
-          ? <div>
-              <Row>
-                <Col s={4} m={4} l={4}>
+        <Navbar brand="logo" className="light-blue lighten-5 opacity" right>
+          <NavItem href="get-started.html">
+            <div className="blue-text">Getting started </div>
+          </NavItem>
+          <NavItem href="components.html">
+            <div className="blue-text"> Components</div>
+          </NavItem>
+        </Navbar>
+        <div className="">
+          <Row className="top-cards">
+            {/* This is the Map piece */}
+            {this.state.lat && this.state.long
+              ? <Col s={6} m={6} l={6}>
+                  <CardPanel className="all-card-size">
+                    <GMap
+                      currentLat={this.state.lat}
+                      currentLong={this.state.long}
+                    />
+                  </CardPanel>
+                </Col>
+              : <Col s={6} m={6} l={6}>
+                  <div> Click The Button </div>
+                </Col>}
+
+            {this.state.icon
+              ? <Col s={6} m={6} l={6}>
                   <Card
                     header={<CardTitle reveal image={bgImage} waves="light" />}
                     title={this.state.summary}
@@ -128,61 +160,42 @@ class App extends Component {
                       </p>
                     }
                   />
-
-                  {/* <Card
-                    className="small"
-                    header={
-                      <CardTitle image={bgImage}>
-                        {this.state.summary}
-                      </CardTitle>
-                    }
-                  /> */}
                 </Col>
-              </Row>
-            </div>
-          : <Col s={4} m={4} l={4}>
-              <Card
-                className="small"
-                header={<CardTitle image={cogLogo}>Card Title</CardTitle>}
-                actions={[<a href="#">This is a Link</a>]}
-              >
-                I am a very simple card. I am good at containing small bits of
-                information. I am convenient because I require little markup to
-                use effectively.
-              </Card>
-            </Col>}
-        {/* <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
+              : <Col s={6} m={6} l={6}>
+                  <Card
+                    className="small"
+                    header={<CardTitle image={cogLogo}>Card Title</CardTitle>}
+                    actions={[<a href="#">This is a Link</a>]}
+                  >
+                    I am a very simple card. I am good at containing small bits
+                    of information. I am convenient because I require little
+                    markup to use effectively.
+                  </Card>
+                </Col>}
+          </Row>
+        </div>
 
         {/* <Timer /> */}
-        <Button
-          waves="light"
-          onClick={event => {
-            this.initialCall();
-          }}
-        >
-          What's The Weather Here & Now?<Icon right>cloud</Icon>
-        </Button>
+        <div className="center-button">
+          <Button
+            waves="light"
+            onClick={event => {
+              this.initialCall();
+            }}
+          >
+            What's The Weather Here & Now?<Icon right>cloud</Icon>
+          </Button>
+        </div>
         <div>
           <Row>
-            <Col s={4} m={4} l={4}>
-              <Card>
+            <Col s={6} m={6} l={6}>
+              <CardPanel className="all-card-size">
                 <Demo />
-              </Card>
+              </CardPanel>
             </Col>
-            {this.state.lat && this.state.long
-              ? <Col s={4} m={4} l={4}>
-                  <Card>
-                    <GMap
-                      currentLat={this.state.lat}
-                      currentLong={this.state.long}
-                    />
-                  </Card>
-                </Col>
-              : <Col s={4} m={4} l={4}>
-                  <div> Click The Button </div>
-                </Col>}
+            <Col s={6} m={6} l={6}>
+              <CardPanel className="all-card-size" />
+            </Col>
           </Row>
         </div>
       </div>
