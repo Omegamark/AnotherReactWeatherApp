@@ -1,10 +1,12 @@
-import React, { Component } from "react";
 // Import components, CSS & libraries
+import React, { Component } from "react";
 // import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 // import Timer from "./components/timer";
 import GMap from "./components/gmap";
 import Demo from "./components/geoloc";
 import cogLogo from "./cog.png";
+// Object for updating the page background
+import gifObject from "./js/gifObject";
 import {
   Button,
   Card,
@@ -23,28 +25,13 @@ const apiKey = "5289bdc9d0f09cf2fce0fedd342c4c13";
 // Base search on current Location
 var currentLocation;
 
-// console.log("this is your current position", currentLocation);
-// const time = "409467600";
 // Format Unix TimeStamp to work with Dark Sky API.
 const currentTime =
   Math.ceil(Math.round(new Date().getTime() / 1000) / 10) * 10;
 var apiUrl;
 
 console.log("this is currentTime", currentTime);
-// Object for updating the page background
-const gifObject = {
-  rain: "https://media.giphy.com/media/OvFQrZk8b5N0Q/source.gif",
-  snow: "https://media.giphy.com/media/boqxHlnQOnpeg/giphy.gif",
-  sleet: "https://media.giphy.com/media/jrAjSZWmHVcaY/giphy.gif",
-  fog: "https://media.giphy.com/media/RI42LtoMA5mxi/giphy.gif",
-  wind: "https://media.giphy.com/media/HZg3yWfUYvBAI/giphy.gif",
-  cloudy: "http://media.giphy.com/media/HoUgegTjteXCw/giphy.gif",
-  clearDay: "https://media.giphy.com/media/VxbvpfaTTo3le/giphy.gif",
-  clearNight: "https://media.giphy.com/media/tWy79PNXSFJQY/giphy.gif",
-  partlyCloudyDay: "https://media.giphy.com/media/G1T5M0qT6ZJlu/giphy.gif",
-  partlyCloudyNight:
-    "https://media.giphy.com/media/3o6Zt93byJYeHqvrwc/giphy.gif"
-};
+
 // Was going to change the main background Image, but may not, depends on time.
 var picObject = {
   darkClouds: "https://i.ytimg.com/vi/psEXd2_8yE8/maxresdefault.jpg"
@@ -153,6 +140,11 @@ class App extends Component {
                   <Card
                     header={<CardTitle reveal image={bgImage} waves="light" />}
                     title={this.state.summary}
+                    actions={[
+                      <Button className="activator">
+                        <span>Testing</span>
+                      </Button>
+                    ]}
                     reveal={
                       <p>
                         Here is some more information about this product that is
@@ -163,14 +155,21 @@ class App extends Component {
                 </Col>
               : <Col s={6} m={6} l={6}>
                   <Card
-                    className="small"
+                    className="all-card-size card"
                     header={<CardTitle image={cogLogo}>Card Title</CardTitle>}
-                    actions={[<a href="#">This is a Link</a>]}
-                  >
-                    I am a very simple card. I am good at containing small bits
-                    of information. I am convenient because I require little
-                    markup to use effectively.
-                  </Card>
+                    actions={[
+                      <a className="btn activator">
+                        <span className="activator">Testing </span>
+                      </a>
+                    ]}
+                    reveal={
+                      <p>
+                        I am a very simple card. I am good at containing small
+                        bits of information. I am convenient because I require
+                        little markup to use effectively.
+                      </p>
+                    }
+                  />
                 </Col>}
           </Row>
         </div>
@@ -186,6 +185,7 @@ class App extends Component {
             What's The Weather Here & Now?<Icon right>cloud</Icon>
           </Button>
         </div>
+        <br />
         <div>
           <Row>
             <Col s={6} m={6} l={6}>
