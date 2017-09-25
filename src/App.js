@@ -81,7 +81,12 @@ class App extends Component {
   // Fetch the data from Dark Sky API
   async initialCall() {
     try {
-      const res = await fetch(apiUrl);
+      const res = await fetch(apiUrl, {
+        method: "GET",
+        headers: new Headers({ "Access-Control-Allow-Origin": "*" }),
+        mode: "no-cors",
+        cache: "default"
+      });
       const ds = await res.json();
 
       // Initially centering around Cognizant, but have this update with the map later.
