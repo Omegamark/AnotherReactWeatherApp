@@ -1,5 +1,5 @@
 const switchCssObject = {
-  clearDay: 
+  clearDay:
 
 
 }
