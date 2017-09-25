@@ -39,6 +39,8 @@ var picObject = {
 console.log(gifObject.rain);
 // Inline styling for changing the pages theme dynamically. Only adding background images now, but could do more.
 var bgImage = "";
+var cssClass = "";
+var topCards = "";
 
 class App extends Component {
   constructor(props) {
@@ -110,7 +112,7 @@ class App extends Component {
   // Render the page
   render() {
     return (
-      <div className="App">
+      <div className={cssClass}>
         <Navbar brand="logo" className="light-blue lighten-5 opacity" right>
           <NavItem href="get-started.html">
             <div className="blue-text">Getting started </div>
@@ -120,7 +122,7 @@ class App extends Component {
           </NavItem>
         </Navbar>
         <div className="">
-          <Row className="top-cards">
+          <Row>
             {/* This is the Map piece */}
             {this.state.lat && this.state.long
               ? <Col s={6} m={6} l={6}>
@@ -132,19 +134,22 @@ class App extends Component {
                   </CardPanel>
                 </Col>
               : <Col s={6} m={6} l={6}>
-                  <div> Click The Button </div>
+                  <CardPanel className="all-card-size">
+                    <div> Click The Button </div>
+                  </CardPanel>
                 </Col>}
 
             {this.state.icon
               ? <Col s={6} m={6} l={6}>
                   <Card
+                    className="all-card-size"
                     header={<CardTitle reveal image={bgImage} waves="light" />}
                     title={this.state.summary}
-                    actions={[
-                      <Button className="activator">
-                        <span>Testing</span>
-                      </Button>
-                    ]}
+                    // actions={[
+                    //   <Button className="activator">
+                    //     <span>Testing</span>
+                    //   </Button>
+                    // ]}
                     reveal={
                       <p>
                         Here is some more information about this product that is
@@ -155,13 +160,13 @@ class App extends Component {
                 </Col>
               : <Col s={6} m={6} l={6}>
                   <Card
-                    className="all-card-size card"
+                    className="all-card-size"
                     header={<CardTitle image={cogLogo}>Card Title</CardTitle>}
-                    actions={[
-                      <a className="btn activator">
-                        <span className="activator">Testing </span>
-                      </a>
-                    ]}
+                    // actions={[
+                    //   <a className="btn activator">
+                    //     <span className="activator">Testing </span>
+                    //   </a>
+                    // ]}
                     reveal={
                       <p>
                         I am a very simple card. I am good at containing small
@@ -207,33 +212,43 @@ class App extends Component {
     switch (icon) {
       case "partly-cloudy-day":
         bgImage = gifObject.partlyCloudyDay;
+        cssClass = "partly-cloudy-day";
         break;
       case "clear-day":
         bgImage = gifObject.clearDay;
+        cssClass = "clear-day";
         break;
       case "cloudy":
         bgImage = gifObject.cloudy;
+        cssClass = "cloudy";
         break;
       case "clear-night":
         bgImage = gifObject.clearNight;
+        cssClass = "clear-night";
         break;
       case "partly-cloudy-night":
         bgImage = gifObject.partlyCloudyNight;
+        cssClass = "partly-cloudy-night";
         break;
       case "rain":
         bgImage = gifObject.rain;
+        cssClass = "rain";
         break;
       case "sleet":
         bgImage = gifObject.sleet;
+        cssClass = "sleet";
         break;
       case "snow":
         bgImage = gifObject.snow;
+        cssClass = "snow";
         break;
       case "wind":
         bgImage = gifObject.wind;
+        cssClass = "wind";
         break;
       case "fog":
         bgImage = gifObject.fog;
+        cssClass = "fog";
         break;
     }
   }
