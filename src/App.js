@@ -18,7 +18,7 @@ import {
   Row,
   Col
 } from "react-materialize";
-import "./App.css";
+import "./css/app.css";
 import fetch from "node-fetch";
 // Declare variables need for initial state
 const apiKey = "5289bdc9d0f09cf2fce0fedd342c4c13";
@@ -117,8 +117,8 @@ class App extends Component {
   // Render the page
   render() {
     return (
-      <div className={cssClass}>
-        <Navbar brand="logo" className="light-blue lighten-5 opacity" right>
+      <div>
+        <Navbar brand="ARWA" className="transparent black-text" right>
           <NavItem href="get-started.html">
             <div className="blue-text">Getting started </div>
           </NavItem>
@@ -129,71 +129,75 @@ class App extends Component {
         <div className="">
           <Row>
             {/* This is the Map piece */}
-            {this.state.lat && this.state.long
-              ? <Col s={6} m={6} l={6}>
-                  <CardPanel className="all-card-size">
-                    <GMap
-                      currentLat={this.state.lat}
-                      currentLong={this.state.long}
-                    />
-                  </CardPanel>
-                </Col>
-              : <Col s={6} m={6} l={6}>
-                  <CardPanel className="all-card-size">
-                    <div> Click The Button </div>
-                  </CardPanel>
-                </Col>}
+            {this.state.lat && this.state.long ? (
+              <Col s={6} m={6} l={6}>
+                <CardPanel className="all-card-size">
+                  <GMap
+                    currentLat={this.state.lat}
+                    currentLong={this.state.long}
+                  />
+                </CardPanel>
+              </Col>
+            ) : (
+              <Col s={6} m={6} l={6}>
+                <CardPanel className="all-card-size">
+                  <div> Click The Button </div>
+                </CardPanel>
+              </Col>
+            )}
 
-            {this.state.icon
-              ? <Col s={6} m={6} l={6}>
-                  <Card
-                    className="all-card-size"
-                    header={<CardTitle reveal image={bgImage} waves="light" />}
-                    title={this.state.summary}
-                    // actions={[
-                    //   <Button className="activator">
-                    //     <span>Testing</span>
-                    //   </Button>
-                    // ]}
-                    reveal={
-                      <p>
-                        Here is some more information about this product that is
-                        only revealed once clicked on.
-                      </p>
-                    }
-                  />
-                </Col>
-              : <Col s={6} m={6} l={6}>
-                  <Card
-                    className="all-card-size"
-                    header={<CardTitle image={cogLogo}>Card Title</CardTitle>}
-                    // actions={[
-                    //   <a className="btn activator">
-                    //     <span className="activator">Testing </span>
-                    //   </a>
-                    // ]}
-                    reveal={
-                      <p>
-                        I am a very simple card. I am good at containing small
-                        bits of information. I am convenient because I require
-                        little markup to use effectively.
-                      </p>
-                    }
-                  />
-                </Col>}
+            {this.state.icon ? (
+              <Col s={6} m={6} l={6}>
+                <Card
+                  className="all-card-size"
+                  header={<CardTitle reveal image={bgImage} waves="light" />}
+                  title={this.state.summary}
+                  // actions={[
+                  //   <Button className="activator">
+                  //     <span>Testing</span>
+                  //   </Button>
+                  // ]}
+                  reveal={
+                    <p>
+                      Here is some more information about this product that is
+                      only revealed once clicked on.
+                    </p>
+                  }
+                />
+              </Col>
+            ) : (
+              <Col s={6} m={6} l={6}>
+                <Card
+                  className="all-card-size"
+                  header={<CardTitle image={cogLogo}>Card Title</CardTitle>}
+                  // actions={[
+                  //   <a className="btn activator">
+                  //     <span className="activator">Testing </span>
+                  //   </a>
+                  // ]}
+                  reveal={
+                    <p>
+                      I am a very simple card. I am good at containing small
+                      bits of information. I am convenient because I require
+                      little markup to use effectively.
+                    </p>
+                  }
+                />
+              </Col>
+            )}
           </Row>
         </div>
 
         {/* <Timer /> */}
         <div className="center-button">
-          <Button
-            waves="light"
+          <a
+            className={cssClass}
             onClick={event => {
               this.initialCall();
             }}
           >
             What's The Weather Here & Now?<Icon right>cloud</Icon>
-          </Button>
+          </a>
         </div>
         <br />
         <div>

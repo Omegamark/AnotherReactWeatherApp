@@ -1,0 +1,73 @@
+/* BASE STYLE */
+/*Navbar opacity */
+.opacity {
+  opacity: 0.5;
+}
+
+/*Fixing issue with react-materialize not changing color correctly.*/
+nav .brand-logo {
+  color: black;
+}
+
+/*flexing cards */
+.center-cards {
+  display: flex;
+}
+
+/*Centering the button on screen */
+.center-button {
+  display: flex;
+  justify-content: center;
+}
+
+/*Fix card sizing so all cards are the same */
+.all-card-size {
+  min-height: 20rem;
+  max-height: 20rem;
+  min-width: 20rem;
+  max-width: 20rem;
+}
+
+/*CSS for different days */
+/*CLEAR DAY */
+/*PARTLY CLOUDY DAY */
+.partly-cloudy-day {
+  background-color: #a8e0ff;
+}
+
+.top-cards {
+  background-color: #70cad1;
+}
+
+/*fixing tables in geoloc.js */
+/*.fix-table {
+ *  display: flex;
+ *  justify-content: center;
+ *} */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Clear Day */
+.clear-day {
+  height: 6.25rem;
+  width: 6.25rem;
+  cursor: pointer;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 5px 10px #555;
+  -moz-border-shadow: 0 5px 10px #555;
+  box-shadow: 0 5px 10px #555;
+  background: #036;
+  background: -webkit-linear-gradient(orangered, yellow);
+  background: -o-linear-gradient(orangered, yellow);
+  background: -moz-linear-gradient(orangered, yellow);
+  background: linear-gradient(orangered, yellow);
+}
+
+/*# sourceMappingURL=app.css.map */
