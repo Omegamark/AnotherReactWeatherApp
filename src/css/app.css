@@ -4,11 +4,14 @@
   opacity: 0.5; }
 
 nav .brand-logo {
-  color: blue; }
+  color: blue;
+  font-family: "Rye", cursive; }
 
 /*flexing cards */
 .center-cards {
-  display: flex; }
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
 
 /*Centering the button on screen */
 .center-button {
@@ -25,8 +28,6 @@ nav .brand-logo {
 .common-background {
   background: grey; }
 
-/*CSS for different days */
-/*CLEAR DAY */
 /*fixing tables in geoloc.js */
 /*.fix-table {
  *  display: flex;

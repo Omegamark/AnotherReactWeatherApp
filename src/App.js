@@ -119,109 +119,117 @@ class App extends Component {
   render() {
     return (
       <div className={this.state.icon ? background : "common-background"}>
-        <Navbar brand="ARWA" className="transparent" right>
-          <NavItem href="get-started.html">
-            <div className="blue-text">Getting started </div>
-          </NavItem>
-          <NavItem href="components.html">
-            <div className="blue-text"> Components</div>
-          </NavItem>
-        </Navbar>
-        <div className="">
-          <Row>
-            {/* This is the Map piece */}
-            {this.state.lat && this.state.long ? (
-              <Col s={6} m={6} l={6}>
-                <CardPanel
-                  className={this.state.icon ? cards : "all-card-size"}
-                >
-                  <GMap
-                    currentLat={this.state.lat}
-                    currentLong={this.state.long}
+        <div className="center-cards">
+          <Navbar brand="ARWA" className="transparent" right>
+            <NavItem href="get-started.html">
+              <div className="blue-text">Getting started </div>
+            </NavItem>
+            <NavItem href="components.html">
+              <div className="blue-text"> Components</div>
+            </NavItem>
+          </Navbar>
+          <div className="">
+            <Row>
+              {/* This is the Map piece */}
+              {this.state.lat && this.state.long ? (
+                <Col s={6} m={6} l={6}>
+                  <CardPanel
+                    className={this.state.icon ? cards : "all-card-size"}
+                  >
+                    <GMap
+                      currentLat={this.state.lat}
+                      currentLong={this.state.long}
+                    />
+                  </CardPanel>
+                </Col>
+              ) : (
+                <Col s={6} m={6} l={6}>
+                  <CardPanel
+                    className={this.state.icon ? cards : "all-card-size"}
+                  >
+                    <div> Click The Button </div>
+                  </CardPanel>
+                </Col>
+              )}
+
+              {this.state.icon ? (
+                <Col s={6} m={6} l={6}>
+                  <Card
+                    className={this.state.icon ? cards : "all-card-size"}
+                    header={<CardTitle reveal image={bgImage} waves="light" />}
+                    title={this.state.summary}
+                    // actions={[
+                    //   <Button className="activator">
+                    //     <span>Testing</span>
+                    //   </Button>
+                    // ]}
+                    reveal={
+                      <p>
+                        Here is some more information about this product that is
+                        only revealed once clicked on.
+                      </p>
+                    }
                   />
-                </CardPanel>
-              </Col>
-            ) : (
+                </Col>
+              ) : (
+                <Col s={6} m={6} l={6}>
+                  <Card
+                    className={this.state.icon ? cards : "all-card-size"}
+                    header={
+                      <CardTitle reveal image={biu}>
+                        Card Title
+                      </CardTitle>
+                    }
+                    // actions={[
+                    //   <a className="btn activator">
+                    //     <span className="activator">Testing </span>
+                    //   </a>
+                    // ]}
+                    reveal={
+                      <p>
+                        Hey, if you clicked on this it means you are interacting
+                        with this app. Please take a look at my personal website
+                        at therealmarkgrant.com
+                      </p>
+                    }
+                  />
+                </Col>
+              )}
+            </Row>
+          </div>
+
+          {/* <Timer /> */}
+          <Row>
+            <Col s={12} m={12} l={12}>
+              <div className="center-button">
+                <a
+                  className={this.state.icon ? cssClass : "btn"}
+                  onClick={event => {
+                    this.initialCall();
+                  }}
+                >
+                  What's The Weather Here & Now?
+                </a>
+              </div>
+            </Col>
+          </Row>
+          <br />
+          <div>
+            <Row>
               <Col s={6} m={6} l={6}>
                 <CardPanel
                   className={this.state.icon ? cards : "all-card-size"}
                 >
-                  <div> Click The Button </div>
+                  <Demo />
                 </CardPanel>
               </Col>
-            )}
-
-            {this.state.icon ? (
               <Col s={6} m={6} l={6}>
-                <Card
+                <CardPanel
                   className={this.state.icon ? cards : "all-card-size"}
-                  header={<CardTitle reveal image={bgImage} waves="light" />}
-                  title={this.state.summary}
-                  // actions={[
-                  //   <Button className="activator">
-                  //     <span>Testing</span>
-                  //   </Button>
-                  // ]}
-                  reveal={
-                    <p>
-                      Here is some more information about this product that is
-                      only revealed once clicked on.
-                    </p>
-                  }
                 />
               </Col>
-            ) : (
-              <Col s={6} m={6} l={6}>
-                <Card
-                  className={this.state.icon ? cards : "all-card-size"}
-                  header={
-                    <CardTitle reveal image={biu}>
-                      Card Title
-                    </CardTitle>
-                  }
-                  // actions={[
-                  //   <a className="btn activator">
-                  //     <span className="activator">Testing </span>
-                  //   </a>
-                  // ]}
-                  reveal={
-                    <p>
-                      Hey, if you clicked on this it means you are interacting
-                      with this app. Please take a look at my personal website
-                      at therealmarkgrant.com
-                    </p>
-                  }
-                />
-              </Col>
-            )}
-          </Row>
-        </div>
-
-        {/* <Timer /> */}
-        <div className="center-button">
-          <a
-            className={this.state.icon ? cssClass : "btn"}
-            onClick={event => {
-              this.initialCall();
-            }}
-          >
-            What's The Weather Here & Now?
-          </a>
-        </div>
-        <br />
-        <div>
-          <Row>
-            <Col s={6} m={6} l={6}>
-              <CardPanel className={this.state.icon ? cards : "all-card-size"}>
-                <Demo />
-              </CardPanel>
-            </Col>
-            <Col s={6} m={6} l={6}>
-              <CardPanel
-                className={this.state.icon ? cards : "all-card-size"}
-              />
-            </Col>
-          </Row>
+            </Row>
+          </div>
         </div>
       </div>
     );
@@ -237,6 +245,8 @@ class App extends Component {
       case "clear-day":
         bgImage = gifObject.clearDay;
         cssClass = "clear-day";
+        background = "clear-day-background";
+        cards = "clear-day-cards all-card-size";
         break;
       case "cloudy":
         bgImage = gifObject.cloudy;
