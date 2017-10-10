@@ -1,44 +1,32 @@
 /* BASE STYLE */
 /*Navbar opacity */
 .opacity {
-  opacity: 0.5;
-}
+  opacity: 0.5; }
 
-/*Fixing issue with react-materialize not changing color correctly.*/
 nav .brand-logo {
-  color: black;
-}
+  color: blue; }
 
 /*flexing cards */
 .center-cards {
-  display: flex;
-}
+  display: flex; }
 
 /*Centering the button on screen */
 .center-button {
   display: flex;
-  justify-content: center;
-}
+  justify-content: center; }
 
 /*Fix card sizing so all cards are the same */
 .all-card-size {
   min-height: 20rem;
   max-height: 20rem;
   min-width: 20rem;
-  max-width: 20rem;
-}
+  max-width: 20rem; }
+
+.common-background {
+  background: grey; }
 
 /*CSS for different days */
 /*CLEAR DAY */
-/*PARTLY CLOUDY DAY */
-.partly-cloudy-day {
-  background-color: #a8e0ff;
-}
-
-.top-cards {
-  background-color: #70cad1;
-}
-
 /*fixing tables in geoloc.js */
 /*.fix-table {
  *  display: flex;
@@ -46,12 +34,9 @@ nav .brand-logo {
  *} */
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
-  }
+    transform: rotate(0deg); }
   to {
-    transform: rotate(360deg);
-  }
-}
+    transform: rotate(360deg); } }
 /* Clear Day */
 .clear-day {
   height: 6.25rem;
@@ -67,7 +52,82 @@ nav .brand-logo {
   background: -webkit-linear-gradient(orangered, yellow);
   background: -o-linear-gradient(orangered, yellow);
   background: -moz-linear-gradient(orangered, yellow);
-  background: linear-gradient(orangered, yellow);
-}
+  background: linear-gradient(orangered, yellow); }
+
+.clear-day-background {
+  background: skyblue; }
+
+/* Clear Night */
+.clear-night {
+  height: 6.25rem;
+  width: 6.25rem;
+  padding: 0.9rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 5px 10px #555;
+  -moz-border-shadow: 0 5px 10px #555;
+  box-shadow: 0 5px 10px #555;
+  background: #036;
+  background: -webkit-linear-gradient(black, purple);
+  background: -o-linear-gradient(black, purple);
+  background: -moz-linear-gradient(black, purple);
+  background: linear-gradient(black, purple); }
+
+.clear-night-background {
+  background: black; }
+
+.clear-night-cards {
+  background: #2F4F4F; }
+
+.partly-cloudy-night {
+  height: 6.25rem;
+  width: 6.25rem;
+  padding: 0.9rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 5px 10px #555;
+  -moz-border-shadow: 0 5px 10px #555;
+  box-shadow: 0 5px 10px #555;
+  background: #036;
+  background: -webkit-linear-gradient(black, purple);
+  background: -o-linear-gradient(black, purple);
+  background: -moz-linear-gradient(black, purple);
+  background: linear-gradient(black, purple); }
+
+.partly-cloudy-night-background {
+  background: black; }
+
+.partly-cloudy-night-cards {
+  background: #2F4F4F; }
+
+.snow {
+  height: 6.25rem;
+  width: 6.25rem;
+  padding: 0.9rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 5px 10px #555;
+  -moz-border-shadow: 0 5px 10px #555;
+  box-shadow: 0 5px 10px #555;
+  background: #036;
+  background: -webkit-linear-gradient(black, purple);
+  background: -o-linear-gradient(black, purple);
+  background: -moz-linear-gradient(black, purple);
+  background: linear-gradient(black, purple); }
+
+.snow-background {
+  background: black; }
+
+.snow-cards {
+  background: blue; }
 
 /*# sourceMappingURL=app.css.map */

@@ -4,7 +4,7 @@ import React, { Component } from "react";
 // import Timer from "./components/timer";
 import GMap from "./components/gmap";
 import Demo from "./components/geoloc";
-import cogLogo from "./cog.png";
+import biu from "./assets/biuSquare.png";
 // Object for updating the page background
 import gifObject from "./js/gifObject";
 import {
@@ -40,7 +40,8 @@ console.log(gifObject.rain);
 // Inline styling for changing the pages theme dynamically. Only adding background images now, but could do more.
 var bgImage = "";
 var cssClass = "";
-var topCards = "";
+var background = "";
+var cards = "";
 
 class App extends Component {
   constructor(props) {
@@ -117,8 +118,8 @@ class App extends Component {
   // Render the page
   render() {
     return (
-      <div>
-        <Navbar brand="ARWA" className="transparent black-text" right>
+      <div className={this.state.icon ? background : "common-background"}>
+        <Navbar brand="ARWA" className="transparent" right>
           <NavItem href="get-started.html">
             <div className="blue-text">Getting started </div>
           </NavItem>
@@ -131,7 +132,9 @@ class App extends Component {
             {/* This is the Map piece */}
             {this.state.lat && this.state.long ? (
               <Col s={6} m={6} l={6}>
-                <CardPanel className="all-card-size">
+                <CardPanel
+                  className={this.state.icon ? cards : "all-card-size"}
+                >
                   <GMap
                     currentLat={this.state.lat}
                     currentLong={this.state.long}
@@ -140,7 +143,9 @@ class App extends Component {
               </Col>
             ) : (
               <Col s={6} m={6} l={6}>
-                <CardPanel className="all-card-size">
+                <CardPanel
+                  className={this.state.icon ? cards : "all-card-size"}
+                >
                   <div> Click The Button </div>
                 </CardPanel>
               </Col>
@@ -149,7 +154,7 @@ class App extends Component {
             {this.state.icon ? (
               <Col s={6} m={6} l={6}>
                 <Card
-                  className="all-card-size"
+                  className={this.state.icon ? cards : "all-card-size"}
                   header={<CardTitle reveal image={bgImage} waves="light" />}
                   title={this.state.summary}
                   // actions={[
@@ -168,8 +173,12 @@ class App extends Component {
             ) : (
               <Col s={6} m={6} l={6}>
                 <Card
-                  className="all-card-size"
-                  header={<CardTitle image={cogLogo}>Card Title</CardTitle>}
+                  className={this.state.icon ? cards : "all-card-size"}
+                  header={
+                    <CardTitle reveal image={biu}>
+                      Card Title
+                    </CardTitle>
+                  }
                   // actions={[
                   //   <a className="btn activator">
                   //     <span className="activator">Testing </span>
@@ -177,9 +186,9 @@ class App extends Component {
                   // ]}
                   reveal={
                     <p>
-                      I am a very simple card. I am good at containing small
-                      bits of information. I am convenient because I require
-                      little markup to use effectively.
+                      Hey, if you clicked on this it means you are interacting
+                      with this app. Please take a look at my personal website
+                      at therealmarkgrant.com
                     </p>
                   }
                 />
@@ -191,24 +200,26 @@ class App extends Component {
         {/* <Timer /> */}
         <div className="center-button">
           <a
-            className={cssClass}
+            className={this.state.icon ? cssClass : "btn"}
             onClick={event => {
               this.initialCall();
             }}
           >
-            What's The Weather Here & Now?<Icon right>cloud</Icon>
+            What's The Weather Here & Now?
           </a>
         </div>
         <br />
         <div>
           <Row>
             <Col s={6} m={6} l={6}>
-              <CardPanel className="all-card-size">
+              <CardPanel className={this.state.icon ? cards : "all-card-size"}>
                 <Demo />
               </CardPanel>
             </Col>
             <Col s={6} m={6} l={6}>
-              <CardPanel className="all-card-size" />
+              <CardPanel
+                className={this.state.icon ? cards : "all-card-size"}
+              />
             </Col>
           </Row>
         </div>
@@ -234,10 +245,14 @@ class App extends Component {
       case "clear-night":
         bgImage = gifObject.clearNight;
         cssClass = "clear-night";
+        background = "clear-night-background";
+        cards = "clear-night-cards all-card-size";
         break;
       case "partly-cloudy-night":
         bgImage = gifObject.partlyCloudyNight;
         cssClass = "partly-cloudy-night";
+        background = "partly-cloudy-night-background";
+        cards = "partly-cloudy-night-cards all-card-size";
         break;
       case "rain":
         bgImage = gifObject.rain;
@@ -246,10 +261,14 @@ class App extends Component {
       case "sleet":
         bgImage = gifObject.sleet;
         cssClass = "sleet";
+        background = "sleet-background";
+        cards = "sleet-cards all-card-size";
         break;
       case "snow":
         bgImage = gifObject.snow;
         cssClass = "snow";
+        background = "snow-background";
+        cards = "snow-cards all-card-size";
         break;
       case "wind":
         bgImage = gifObject.wind;
