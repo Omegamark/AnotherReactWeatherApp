@@ -53,7 +53,7 @@ class GMap extends Component {
         mapElement={
           <div
             style={{
-              minHeight: "15rem",
+              minHeight: "16.5rem",
               maxHeight: "25rem",
               width: "auto"
             }}

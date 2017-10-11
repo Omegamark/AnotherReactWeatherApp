@@ -242,7 +242,12 @@ class App extends Component {
                   className={
                     this.state.icon ? cards : "all-card-size common-cards"
                   }
-                />
+                >
+                  <p>
+                    You'll be able to select a time with this panel...
+                    eventually
+                  </p>
+                </CardPanel>
               </Col>
             </Row>
           </div>

@@ -13,7 +13,8 @@ nav .material-icons {
 .center-cards {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  padding: 1rem; }
 
 /*Centering the button on screen */
 .center-button {
@@ -45,6 +46,10 @@ nav .material-icons {
     transform: rotate(360deg); } }
 /* Clear Day */
 .clear-day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
   height: 15rem;
   width: 15rem;
   padding: 0.9rem;
