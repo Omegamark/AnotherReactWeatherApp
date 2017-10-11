@@ -4,8 +4,10 @@
   opacity: 0.5; }
 
 nav .brand-logo {
-  color: blue;
-  font-family: "Rye", cursive; }
+  color: #518dcc; }
+
+nav .material-icons {
+  color: #518dcc; }
 
 /*flexing cards */
 .center-cards {
@@ -26,7 +28,10 @@ nav .brand-logo {
   max-width: 20rem; }
 
 .common-background {
-  background: grey; }
+  background: #DBFCFF; }
+
+.common-cards {
+  background: #933F62; }
 
 /*fixing tables in geoloc.js */
 /*.fix-table {
@@ -40,8 +45,9 @@ nav .brand-logo {
     transform: rotate(360deg); } }
 /* Clear Day */
 .clear-day {
-  height: 6.25rem;
-  width: 6.25rem;
+  height: 15rem;
+  width: 15rem;
+  padding: 0.9rem;
   cursor: pointer;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
@@ -57,6 +63,9 @@ nav .brand-logo {
 
 .clear-day-background {
   background: skyblue; }
+
+.clear-day-cards {
+  background: orangered; }
 
 /* Clear Night */
 .clear-night {

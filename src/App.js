@@ -4,7 +4,7 @@ import React, { Component } from "react";
 // import Timer from "./components/timer";
 import GMap from "./components/gmap";
 import Demo from "./components/geoloc";
-import biu from "./assets/biuSquare.png";
+import biu from "./assets/biuSquaredSVG.png";
 // Object for updating the page background
 import gifObject from "./js/gifObject";
 import {
@@ -125,7 +125,7 @@ class App extends Component {
             : "container center-cards common-background"
         }
       >
-        <Navbar brand="ARWA" className="transparent" right>
+        <Navbar brand="Another React Weather App" className="transparent" right>
           <NavItem href="get-started.html">
             <div className="blue-text">Getting started </div>
           </NavItem>
@@ -133,13 +133,15 @@ class App extends Component {
             <div className="blue-text"> Components</div>
           </NavItem>
         </Navbar>
-        <div className="">
+        <div>
           <Row>
             {/* This is the Map piece */}
             {this.state.lat && this.state.long ? (
               <Col s={6} m={6} l={6}>
                 <CardPanel
-                  className={this.state.icon ? cards : "all-card-size"}
+                  className={
+                    this.state.icon ? cards : "all-card-size common-cards"
+                  }
                 >
                   <GMap
                     currentLat={this.state.lat}
@@ -150,7 +152,9 @@ class App extends Component {
             ) : (
               <Col s={6} m={6} l={6}>
                 <CardPanel
-                  className={this.state.icon ? cards : "all-card-size"}
+                  className={
+                    this.state.icon ? cards : "all-card-size common-cards"
+                  }
                 >
                   <div> Click The Button </div>
                 </CardPanel>
@@ -160,7 +164,9 @@ class App extends Component {
             {this.state.icon ? (
               <Col s={6} m={6} l={6}>
                 <Card
-                  className={this.state.icon ? cards : "all-card-size"}
+                  className={
+                    this.state.icon ? cards : "all-card-size common-cards"
+                  }
                   header={<CardTitle reveal image={bgImage} waves="light" />}
                   title={this.state.summary}
                   // actions={[
@@ -179,10 +185,14 @@ class App extends Component {
             ) : (
               <Col s={12} m={6}>
                 <Card
-                  className={this.state.icon ? cards : "all-card-size"}
+                  className={
+                    this.state.icon ? cards : "all-card-size common-cards"
+                  }
                   header={
                     <CardTitle reveal image={biu}>
-                      Card Title
+                      <div className="blue-text">
+                        This Card Triggers a Modal!
+                      </div>
                     </CardTitle>
                   }
                   // actions={[
@@ -192,9 +202,9 @@ class App extends Component {
                   // ]}
                   reveal={
                     <p>
-                      Hey, if you clicked on this it means you are interacting
+                      Hey! if you clicked on this it means you are interacting
                       with this app. Please take a look at my personal website
-                      at therealmarkgrant.com
+                      at therealmarkgrant.com.
                     </p>
                   }
                 />
@@ -205,12 +215,12 @@ class App extends Component {
             <Col s={12}>
               <div className="center-button">
                 <a
-                  className={this.state.icon ? cssClass : "btn"}
+                  className={this.state.icon ? cssClass : "btn blue"}
                   onClick={event => {
                     this.initialCall();
                   }}
                 >
-                  What
+                  Click Me!
                 </a>
               </div>
             </Col>
@@ -220,14 +230,18 @@ class App extends Component {
             <Row>
               <Col s={12} m={6}>
                 <CardPanel
-                  className={this.state.icon ? cards : "all-card-size"}
+                  className={
+                    this.state.icon ? cards : "all-card-size common-cards"
+                  }
                 >
                   <Demo />
                 </CardPanel>
               </Col>
               <Col s={12} m={6}>
                 <CardPanel
-                  className={this.state.icon ? cards : "all-card-size"}
+                  className={
+                    this.state.icon ? cards : "all-card-size common-cards"
+                  }
                 />
               </Col>
             </Row>
