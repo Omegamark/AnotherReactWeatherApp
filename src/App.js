@@ -247,7 +247,7 @@ class App extends Component {
       case "clear-day":
         bgImage = gifObject.clearDay;
         cssClass = "clear-day";
-        background = "clear-day-background";
+        background = "container center-cards clear-day-background";
         cards = "clear-day-cards all-card-size";
         break;
       case "cloudy":
